@@ -1,0 +1,18 @@
+{
+	"server": {
+		"port": "8080",
+		"pepper": "PEPPER"
+	},
+	"psql": {
+		"host": "localhost",
+		"port": "5432",
+		"name": "test",
+		"user": "user",
+		"password": "password"
+	},
+	"redis": {
+		"host": "localhost",
+		"port": "6379",
+		"password": ""
+	}
+}
