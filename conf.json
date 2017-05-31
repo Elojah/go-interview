@@ -1,6 +1,6 @@
 {
 	"server": {
-		"port": "8080",
+		"port": "3000",
 		"pepper": "WsV9PZJ0KhU9PhLvPxzpg5ctaknFL1HvPzxX97J49OKlWLPxbu9RhLOwFk6P9JlYp"
 	},
 	"psql": {

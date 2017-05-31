@@ -87,3 +87,12 @@ The evaluation criterium are:
 [Ben Johnson's architecture](https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1).
 - Should you need help to write your code or beat your compiler, feel free to
 ask us directly!
+
+
+#Run
+```
+    make
+    curl -H "Content-Type: application/json" -X POST -d '{"login":"test_login","password":"test_password"}' http://localhost:3000/user/add
+    curl -H "Content-Type: application/json" -X POST -d '{"login":"test_login","password":"test_password"}' http://localhost:3000/api/login
+
+```
