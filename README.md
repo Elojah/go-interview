@@ -89,7 +89,8 @@ The evaluation criterium are:
 ask us directly!
 
 
-#Run
+## Run
+>>>>>>> core: Fix docker ops + Add run readme
 ```
     make
     curl -H "Content-Type: application/json" -X POST -d '{"login":"test_login","password":"test_password"}' http://localhost:3000/user/add
