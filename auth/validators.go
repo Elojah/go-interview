@@ -6,7 +6,7 @@
 /*   By: hdezier <hdezier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 15:14:31 by hdezier           #+#    #+#             */
-/*   Updated: 2017/05/31 00:22:33 by hdezier          ###   ########.fr       */
+/*   Updated: 2017/05/31 10:30:09 by hdezier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ import (
 
 type UserValidator func(req *http.Request) (user.UserPublic, bool)
 
+// Return a context handler if userValidator returns true
+// Else Returns 401
 func Validate(handler context.HandleCtx, validator UserValidator) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		if publicUser, isValid := validator(req); isValid {

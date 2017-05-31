@@ -1,0 +1,18 @@
+{
+	"server": {
+		"port": "8080",
+		"pepper": "WsV9PZJ0KhU9PhLvPxzpg5ctaknFL1HvPzxX97J49OKlWLPxbu9RhLOwFk6P9JlYp"
+	},
+	"psql": {
+		"host": "localhost",
+		"port": "5432",
+		"name": "test",
+		"user": "docker",
+		"password": "docker"
+	},
+	"redis": {
+		"host": "localhost",
+		"port": "6379",
+		"password": ""
+	}
+}

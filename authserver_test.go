@@ -6,7 +6,7 @@
 /*   By: hdezier <hdezier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 18:57:47 by hdezier           #+#    #+#             */
-/*   Updated: 2017/05/31 00:16:56 by hdezier          ###   ########.fr       */
+/*   Updated: 2017/05/31 10:11:29 by hdezier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ func addUserRedis(t *testing.T, u user.User) {
 		t.Errorf(`[ERROR] Failed to add test user in redis`)
 	}
 }
-func addUserPSQL(t *testing.T, u user.User) {
+func addUserFakePSQL(t *testing.T, u user.User) {
 	query := fmt.Sprintf(`	INSERT INTO %s (
 									"login",
 									"password",
@@ -137,7 +137,7 @@ func TestValidLog(t *testing.T) {
 	))
 	req := httptest.NewRequest("POST", "/api/login", bytes.NewBuffer(jsonReq))
 
-	addUserPSQL(t, fake_user)
+	addUserFakePSQL(t, fake_user)
 
 	mux := http.NewServeMux()
 	mux.HandleFunc(`/api/login`, auth.Validate(postUser, auth.BasicUser))

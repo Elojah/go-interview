@@ -6,7 +6,7 @@
 /*   By: hdezier <hdezier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/25 15:41:38 by hdezier           #+#    #+#             */
-/*   Updated: 2017/05/31 00:25:50 by hdezier          ###   ########.fr       */
+/*   Updated: 2017/05/31 10:15:13 by hdezier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ import (
 // Define all routes we need to serve
 func AddRoutes(mux *http.ServeMux) {
 	mux.HandleFunc(`/api/login`, auth.Validate(postUser, auth.BasicUser))
+	// For test purposes we add this untested route
 	mux.HandleFunc(`/user/add`, addUser)
 }
 
+// For test purposes ONLY, no safety here
 func addUserPSQL(u user.User) {
 	query := fmt.Sprintf(`	INSERT INTO %s (
 									"login",
@@ -56,7 +58,7 @@ func addUserPSQL(u user.User) {
 	_, _ = psql.Client.Exec(query)
 }
 
-// For tests purpose
+// For tests purposes
 func addUser(w http.ResponseWriter, req *http.Request) {
 	u := user.User{}
 	decoder := json.NewDecoder(req.Body)
@@ -67,7 +69,7 @@ func addUser(w http.ResponseWriter, req *http.Request) {
 	w.Write([]byte("User created\n"))
 }
 
-// Serve `/api/login`
+// Return UserPublic as JSON for an User logged
 func postUser(ctx context.Context) {
 	fmt.Println(`[INFO] Accepted request for: /user`)
 	ctx.W.WriteHeader(http.StatusAccepted)
